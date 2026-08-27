@@ -25,7 +25,7 @@ async function pegaArquivo(caminhoDoArquivo){
         const texto = await fs.promises.readFile(caminhoDoArquivo,enconding)
         //console.log(chalk.green(texto));
         return extraiLinks(texto)
-    } catch(erro){
+    }catch(erro){
         tratarErro(erro)
     }
 }
