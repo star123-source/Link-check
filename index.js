@@ -14,4 +14,21 @@ function extraiLinks(texto){
     })
 
     return resultado.length !== ? resultado: "Não foi encontrado links no arquivo"
+
 }
+
+// async ^ await
+async function pegaArquivo(caminhoDoArquivo){
+
+    try{
+        const enconding = 'utf-8';
+        const texto = await fs.promises.readFile(caminhoDoArquivo,enconding)
+        //console.log(chalk.green(texto));
+        return extraiLinks(texto)
+    } catch(erro){
+        tratarErro(erro)
+    }
+}
+//('./mooks/texto.md')
+
+export default pegaArquivo;
