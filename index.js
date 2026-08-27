@@ -13,5 +13,5 @@ function extraiLinks(texto){
         return ({[captura[1]]:captura[2]})
     })
 
-    return resultado.length !== resultado: "Não foi encontrado links no arquivo"
+    return resultado.length !== ? resultado: "Não foi encontrado links no arquivo"
 }
