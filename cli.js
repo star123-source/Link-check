@@ -4,7 +4,7 @@ import chalk from "chalk";
 import { asyncWrapProviders } from "async_hooks";
 import listaValidada from './http-validacao.js';
 
-const caminho = process.arg
+const caminho = process.argv
 
 async function impreLista(valida,resultado,nome = '') {
     if(valida == true){
