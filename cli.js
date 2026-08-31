@@ -22,7 +22,7 @@ async function impreLista(valida,resultado,nome = '') {
 async function processaTexto(argumentos){
     let caminho = argumentos[2]
     const valida = argumentos[3] === '--valida';
-    console.log(valida)
+
     try{
         fs.lstatSync(caminho)
     } catch (erro){
@@ -43,3 +43,7 @@ async function processaTexto(argumentos){
     })
        
     }
+
+}
+
+processaTexto(caminho)
