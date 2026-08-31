@@ -18,3 +18,28 @@ async function impreLista(valida,resultado,nome = '') {
         console.log(resultado)
 }
 }
+
+async function processaTexto(argumentos){
+    let caminho = argumentos[2]
+    const valida = argumentos[3] === '--valida';
+    console.log(valida)
+    try{
+        fs.lstatSync(caminho)
+    } catch (erro){
+        if(erro.code === "ENOENT"){
+            console.log(chalk.red('Arquivo não existente'))
+        }
+        return;
+    }
+    if(fs.lstatSync(caminho).isFile()){
+          const resultado = await pegaArquivo(caminho)
+          imprimeLista(valida,resultado)
+          ;
+    }else if(fs.lstatSync(caminho).isDirectory()) {
+       const arquivos = await fs.promises.readdir(caminho)
+       arquivos.forEach(async(nomeDeArquivo)=>{
+        const lista = await pegaArquivo(`${caminho}/${nomeDeArquivo}`)
+        imprimeLista(valida,lista,nomeDeArquivo)
+    })
+       
+    }
